@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <rect width="160" height="160" rx="80" fill="#e4e9e7"/>
+  <circle cx="80" cy="80" r="69" fill="none" stroke="#bec9c3"/>
+  <text x="80" y="96" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#39604d">SK</text>
+</svg>

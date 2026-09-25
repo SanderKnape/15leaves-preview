@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The coding agent enters the robot lab · 15 leaves</title>
+  <meta name="description" content="A coding agent can write software that runs perfectly while a robot still misses the hole. In ENPIRE, agents used feedback from physical attempts to change how robots were trained and test what worked.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="The coding agent enters the robot lab">
+  <meta property="og:description" content="A coding agent can write software that runs perfectly while a robot still misses the hole. In ENPIRE, agents used feedback from physical attempts to change how robots were trained and test what worked.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="15 leaves">
+  <meta name="author" content="Sander Knape">
+  
+  <link rel="icon" href="/15leaves/assets/logo/micro.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/15leaves/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/15leaves/assets/site.css">
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="preview-notice">Temporary preview <span aria-hidden="true">·</span> Articles are drafts awaiting final approval</div>
+  <header class="site-header wrap">
+    <div class="masthead-identity">
+    <a class="wordmark" href="/15leaves/" aria-label="15 leaves home">
+      <picture>
+        <source media="(max-width: 600px)" srcset="/15leaves/assets/logo/compact.svg">
+        <img src="/15leaves/assets/logo/refined.svg" width="64" height="64" alt="">
+      </picture>
+      <span>15 leaves<span class="wordmark-dot">.</span></span>
+    </a>
+    <a class="masthead-author" href="/15leaves/about/">by Sander Knape</a>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="/15leaves/articles/">Stories</a>
+      <a href="/15leaves/about/">About</a>
+      
+    </nav>
+  </header>
+  <main id="main" tabindex="-1">
+<article class="article-shell wrap">
+  <a class="back-link article-back" href="/15leaves/articles/"><span aria-hidden="true">←</span> All stories</a>
+  <div class="article-opening has-explainer">
+  <header class="article-header">
+    <div class="eyebrow">Robotics</div>
+    <h1 id="the-coding-agent-enters-the-robot-lab">The coding agent enters the robot lab</h1>
+    <p class="article-deck">A coding agent can write software that runs perfectly while a robot still misses the hole. In ENPIRE, agents used feedback from physical attempts to change how robots were trained and test what worked.</p>
+    <p class="article-byline">By <a href="/15leaves/about/">Sander Knape</a></p>
+    <div class="story-meta"><span>Draft preview · Not yet published</span><span aria-hidden="true">/</span><span>5 min read</span></div>
+  </header>
+  
+  <aside class="article-explainer" aria-labelledby="explainer-title">
+    <h2 id="explainer-title">Two different kinds of AI</h2>
+    
+    <p>The robot’s policy chooses movements from what its sensors observe. It is the part being trained to perform a physical task.</p><p>The coding agent works on the training process: it changes software, runs experiments and examines the results. It does not choose each movement of the robot.</p><p>People provide the laboratory, demonstrations and requirements that this work builds on.</p>
+  </aside>
+  
+  </div>
+  <figure class="article-image article-image-robot">
+    
+<div class="story-art robot article-hero" aria-hidden="true">
+
+
+<img src="/15leaves/assets/images/robot-lab.webp" width="1536" height="1024" alt="">
+
+
+</div>
+
+    <figcaption>Conceptual illustration · Created with AI assistance. Imagined apparatus, not a photograph of the ENPIRE experiment.</figcaption>
+  </figure>
+  <div class="article-body prose"><p>Getting a robot to insert a pin gives a coding agent an unusually concrete problem. Its software changes eventually have to help a physical object fit into another one. A program can run without errors while the robot still fails at the task.</p>
+<p>In <a href="https://arxiv.org/html/2606.19980v2">ENPIRE</a>, coding agents worked on that gap. They inspected feedback from physical attempts, changed training methods and software, ran experiments, and retained improvements. The researchers report that this policy-improvement stage proceeded with minimal human intervention.</p>
+<p>There are two different AI systems at work here. The robot’s <em>policy</em> selects actions from observations. The coding agent edits and runs the software used to train that policy. The reported improvement concerns the robot policy; it does not mean the coding model retrained itself.</p>
+<p>One consequential choice in the pin-insertion work was to keep learning from human demonstrations while also learning from the results of the robot’s own attempts. Why keep both?</p>
+<h2 id="learning-from-examples-without-stopping-there">Learning from examples without stopping there</h2>
+<p>Demonstrations give training a starting point: examples of what the robot should do. A method called <em>behavior cloning</em> trains the policy to produce demonstrated actions when it receives corresponding observations.</p>
+<p>Reinforcement learning supplies a different pressure. It uses rewards - scores associated with outcomes - to favor actions expected to lead to better results. The distinction matters because matching an example and improving a task score are different objectives. A training system can combine them, with a weight controlling how strongly it continues to favor demonstrated behavior.</p>
+<p>ENPIRE’s agents explored that balance. They tested behavior cloning, repeated rounds of imitation training, and combinations of reinforcement learning using previously collected data and new robot experience. They also adjusted how much data each training update used, how frequently parts of the learning system were updated, and how heavily imitation counted.</p>
+<p>In the researchers’ account of the pin-insertion experiments, adding an imitation objective alongside reward optimization was associated with a substantial advance in measured performance. Later batch-size and controller refinements accompanied further progress. That history supports a consequential engineering contribution, although it does not isolate how much improvement any one change caused.</p>
+<p>To my mind, deciding how strongly training should favor the demonstrations is a useful engineering contribution in its own right. The agents could change that balance, then use physical results to decide how to proceed.</p>
+<p>Researchers had made that loop possible. They supplied the hardware, demonstrations, task requirements and assessment, and integrated the underlying training infrastructure. That included routing demonstration data and robot-generated data so training could draw on both. Agents implemented or refined interfaces for resetting tasks, enforcing safety constraints and checking outcomes. Once finalized, those interfaces stayed fixed during policy improvement.</p>
+<p>The agents therefore had room to experiment inside a laboratory system built for them. Their autonomy lay in carrying out the improvement work within that system.</p>
+<h2 id="turning-a-physical-outcome-into-a-score">Turning a physical outcome into a score</h2>
+<p>A robot attempt does not arrive with a convenient “passed” label. Someone - or something - has to determine what happened.</p>
+<p>ENPIRE’s zip-tie work provides a separate example of the engineering involved. The <a href="https://research.nvidia.com/labs/gear/enpire/">project’s explanation of automatic evaluation</a> describes identifying the tie’s head and strap, separating their regions in camera images, and combining two camera judgments about whether the strap passes through the head. That produces a binary reward for the learning loop.</p>
+<p>The coding agents worked on the detector itself. They searched for effective prompts for an image-segmentation model, which identifies regions belonging to objects, and adjusted image crops and depth thresholds. They also converted and compiled the detector to meet a 150-millisecond processing budget.</p>
+<p>That budget was a requirement for the detector, not a measurement of the robot’s overall reaction time or proof that the detector was accurate. The supplied account does not give an achieved accuracy figure. During detector development, agents could inspect failures on evaluation snapshots, but were prohibited from training on the test set or changing its metrics.</p>
+<p>The pin-insertion training and zip-tie detector are distinct examples. Together they show two substantial parts of the work: choosing how a robot learns, and making physical outcomes usable as feedback.</p>
+<p>They also expose a dependency that is easy to miss. Training can improve a score only as meaningfully as the scoring system measures the task. Keeping the scoring rules fixed prevents the agent from redefining success during policy improvement; it does not establish that every judgment is correct.</p>
+<p>The reported performance also includes recovery attempts. A robot that succeeds after retrying has achieved something useful, but that result does not tell us how reliably it succeeds on the first attempt. ENPIRE’s training histories support improvement under the configured laboratory evaluation, rather than a claim of deployment-ready reliability.</p>
+<h2 id="the-next-task-began-with-written-experience">The next task began with written experience</h2>
+<p>After the pin-insertion exploration, the researchers asked the agents to document and reflect on their training recipes. They then started a GPU-insertion round and appended that written knowledge to the new instructions.</p>
+<p>The <a href="https://arxiv.org/html/2606.19980v2">paper’s transfer account</a> specifies what crossed between runs: a written summary. Old raw robot trajectories, hidden logs and saved policy checkpoints were excluded. The handoff carried an account of the training work, rather than a trained pin-insertion policy ready to perform the new task.</p>
+<p>The researchers report high success in the subsequent GPU-insertion work, again under recovery-inclusive evaluation. They did not isolate the summary’s contribution in a controlled comparison, so the result cannot tell us how much the written guidance helped.</p>
+<p>Even with that limit, the handoff is a useful consequence of giving coding agents this role. Their physical experiments produced more than an improved policy for one task. They also produced documented engineering experience that researchers could put into the instructions for the next run.</p>
+<p><em>Assistance disclosure: This article was composed with AI assistance using the supplied reporting and evidence packet. Human approval is pending.</em></p>
+</div>
+  <footer class="article-end">
+    <div class="author-card">
+  <img class="author-portrait" src="/15leaves/assets/images/author-placeholder.svg" alt="Portrait placeholder for Sander Knape" width="160" height="160">
+
+  <div>
+    <p class="author-card-name"><a href="/15leaves/about/">Sander Knape</a> <span>· Author and editor</span></p>
+    <p>I&#39;m a Staff Platform/AI Engineer exploring the bigger achievements AI makes possible, and what I can learn from them.</p>
+    <div class="author-links"><a href="/15leaves/about/">More about me</a><a href="mailto:info@15leaves.ai">Get in touch</a></div>
+  </div>
+</div>
+<p class="corrections-invite">Have a correction or a story I should look into? <a href="mailto:info@15leaves.ai">Email me</a>.</p>
+
+    <a class="text-link" href="/15leaves/articles/">More stories <span aria-hidden="true">→</span></a>
+  </footer>
+</article>
+</main>
+  <footer class="site-footer wrap">
+    <div><a class="footer-name" href="/15leaves/">15 leaves.</a><p class="footer-credit">Written and edited by <a href="/15leaves/about/">Sander Knape</a>.</p></div>
+    <div class="footer-links"><a href="/15leaves/about/">About</a><a href="mailto:info@15leaves.ai">Get in touch</a></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" style="color:#192a29" role="img" aria-label="Compact open hexagon logo">
+  <path d="M 59 23 L 80 11 L 139 45 L 139 114 L 80 148 L 21 114 L 21 79" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 45 44 L 83 84 L 110 112 M 83 84 L 139 45 M 110 112 L 139 114 M 110 112 L 80 148" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 54 62 C 25 64 17 44 22 22 C 47 25 60 40 54 62 Z" fill="currentColor"/>
+  <path d="M 70 78 C 57 52 63 35 79 29 C 89 48 88 68 70 78 Z" fill="currentColor"/>
+  <circle cx="110" cy="112" r="9" fill="currentColor"/>
+  <circle cx="139" cy="114" r="8" fill="currentColor"/>
+  <circle cx="80" cy="148" r="8" fill="currentColor"/>
+</svg>

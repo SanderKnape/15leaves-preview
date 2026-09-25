@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" style="color:#192a29" role="img" aria-label="Refined open hexagon logo">
+  <path d="M 56 22 L 80 8 L 141 44 L 141 115 L 80 151 L 19 115 L 19 73" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 38 43 C 52 58 64 72 78 82 L 108 111 L 141 115 M 78 82 L 141 44 M 108 111 L 80 151" fill="none" stroke="currentColor" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 50 56 C 27 55 17 40 21 24 C 42 24 55 36 50 56 Z" fill="currentColor"/>
+  <path d="M 65 67 C 53 47 58 29 73 22 C 82 43 79 59 65 67 Z" fill="currentColor"/>
+  <path d="M 75 80 C 55 88 38 81 33 66 C 52 59 67 66 75 80 Z" fill="currentColor"/>
+  <circle cx="78" cy="82" r="5.8" fill="currentColor"/>
+  <circle cx="108" cy="111" r="6.4" fill="currentColor"/>
+  <circle cx="141" cy="115" r="6.4" fill="currentColor"/>
+  <circle cx="80" cy="151" r="6.4" fill="currentColor"/>
+</svg>
